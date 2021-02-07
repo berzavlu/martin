@@ -1,29 +1,14 @@
-import { useEffect, useState } from "react"
+import Link from 'next/link'
+import styles from '../styles/Home.module.css'
 
-function Martin() {
-  const [text, setText] = useState({})
-  const getHello = async () => {
-    try {
-      const res = await fetch('/api/hello')
-      const response = await res.json()
-      setText(response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  useEffect(() => {
-    getHello()
-  }, [])
-  console.log(text)
+export default function Home() {
   return (
-    <div>
-      <h1>HOLA MARTIIIIN</h1>
-      <pre>
-        {JSON.stringify(text)}
-      </pre>
+    <div className={styles.container}>
+      <Link href='/martin'>
+        <a>
+          Ir a Martin
+        </a>
+      </Link>
     </div>
-
   )
 }
-
-export default Martin
